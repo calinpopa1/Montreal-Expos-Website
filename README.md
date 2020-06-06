@@ -14,6 +14,6 @@ to the same folder and drag the index.html file in a browser window.
 
 consultez-le <a href="https://calinpopa1.github.io/Montreal-Expos-Website/">ici</a>
 
-Pour utiliser les fonctionnalités interactives et voir les graphiques d'évolution du site téléchargez les fichiers dans ce référentiel
+Pour utiliser les fonctionnalités interactives et voir les graphiques d'évolution du site téléchargez les fichiers de ce référentiel
 
 dans le même dossier et faites glisser le fichier index.html dans une fenêtre de navigateur.
