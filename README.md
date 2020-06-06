@@ -1,5 +1,5 @@
 # Montreal Expos Website
 
-Montreal Expos Website written in HTML, javascript and CSS. 
+<i>Montreal Expos Website written in HTML, javascript and CSS.</i>
 
 view it here
