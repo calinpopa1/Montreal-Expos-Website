@@ -12,7 +12,7 @@ to the same folder and drag the index.html file in a browser window.
 
 <i>Site Web des Expos de Montréal écrit en HTML, Javascript et CSS</i>
 
-consultez-le ici
+consultez-le <a href="https://calinpopa1.github.io/Montreal-Expos-Website/">ici</a>
 
 Pour utiliser les fonctionnalités interactives et voir les graphiques d'évolution du site téléchargez les fichiers dans ce référentiel
 
