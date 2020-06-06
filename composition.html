@@ -1,0 +1,732 @@
+<!--Bojan Odobasic, Calin Popa, Martin Zaffran-->
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <title>Composition des équipes | Expos de Montréal</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+        crossorigin="anonymous">
+    </script>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><img src="logo.jpg" alt="logo" height="44" width="70"></li>
+            <li><a href="accueil.html">Page d'accueil</a></li>
+            <li class="active-page">Composition des équipes</li>
+            <li><a href="classement.html">Classement des équipes</a></li>
+            <li><a href="evolution.html">Évolution de l'équipe</a></li>
+            <li><a href="auteurs.html">Les auteurs</a></li>
+        </ul>
+    </nav>
+    <header>
+        <h1>Composition des équipes</h1>
+    </header>
+    <main>
+        <fieldset>
+            <legend>Sélection des options</legend>
+            <div id="grid-co">
+                <div id="grid-co-year-label">Année de référence</div>
+                <div id="grid-co-year-select">
+                    <select name="year" id="year">
+                        <option value="2004">2004</option>
+                        <option value="2003">2003</option>
+                        <option value="2002">2002</option>
+                        <option value="2001">2001</option>
+                        <option value="2000">2000</option>
+                        <option value="1999">1999</option>
+                        <option value="1998">1998</option>
+                        <option value="1997">1997</option>
+                        <option value="1996">1996</option>
+                        <option value="1995">1995</option>
+                        <option value="1994">1994</option>
+                        <option value="1993">1993</option>
+                        <option value="1992">1992</option>
+                        <option value="1991">1991</option>
+                        <option value="1990">1990</option>
+                        <option value="1989">1989</option>
+                        <option value="1988">1988</option>
+                        <option value="1987">1987</option>
+                        <option value="1986">1986</option>
+                        <option value="1985">1985</option>
+                        <option value="1984">1984</option>
+                        <option value="1983">1983</option>
+                        <option value="1982">1982</option>
+                        <option value="1981">1981</option>
+                        <option value="1980">1980</option>
+                        <option value="1979">1979</option>
+                        <option value="1978">1978</option>
+                        <option value="1977">1977</option>
+                        <option value="1976">1976</option>
+                        <option value="1975">1975</option>
+                        <option value="1974">1974</option>
+                        <option value="1973">1973</option>
+                        <option value="1972">1972</option>
+                        <option value="1971">1971</option>
+                        <option value="1970">1970</option>
+                        <option value="1969">1969</option>
+                    </select>
+                </div>
+                <div id="grid-co-instructions">
+                    Sélectionner les colonnes à afficher dans le tableau des 
+                    joueurs au champs (en offensive et défensive) ainsi que 
+                    dans le tableau des lanceurs. Survoler le nom de la colonne
+                    pour afficher sa description.
+                </div>
+                <div id="grid-co-off-label">Colonnes offensives</div>
+                <div id="grid-co-def-label">Colonnes défensives</div>
+                <div id="grid-co-pitch-label">Colonnes lanceurs</div>
+                <div id="grid-co-off-select">
+                    <label>
+                        <input type="checkbox" name="off-select" value="BApercent" id="BApercent">
+                        <a title="Moyenne au bâton (Batting average)">BA%</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="SLpercent" id="SLpercent">
+                        <a title="Moyenne de puissance (Slugging percentage)">
+                            SL%</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="OBpercent" id="OBpercent">
+                        <a title="Moyenne de présence sur les buts (On-base percentage)">
+                            OB%</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="SOpercent" id="SOpercent">
+                        <a title="Moyenne de retraits sur prises par passages au bâton (Strikeout average)">
+                            SO%</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="SBpercent" id="SBpercent">
+                        <a title="Moyenne de réussite de vol de base (Stolen base percentage)">
+                            SB%</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="AB" id="AB">
+                        <a title="Présences officielles au bâton (At bats)">
+                            AB</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="HField" id="HField">
+                        <a title="Coups sûrs (Hits)">H</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="2B" id="2B">
+                        <a title="Coups sûrs doubles (Doubles)">2B</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="3B" id="3B">
+                        <a title="Coups sûrs triples (Triples)">3B</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="HR" id="HR">
+                        <a title="Coups de circuit (Home runs)">HR</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="BBField" id="BBField">
+                        <a title="Buts sur balles (Base on balls)">BB</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="R" id="R">
+                        <a title="Points marqués (Runs)">R</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="SB" id="SB">
+                        <a title="Buts volés (Stolen bases)">SB</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="off-select" value="CS" id="CS">
+                        <a title="Retraits sur tentative de vol (Caught stealing)">
+                            CS</a>
+                    </label>
+                </div>
+                <div id="grid-co-def-select">
+                    <label>
+                        <input type="checkbox" name="def-select" value="FPpercent" id="FPpercent">
+                        <a title="Moyenne défensive (Fielding percentage)">
+                            FP%</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="def-select" value="POS" id="POS">
+                        <a title="Position">POS</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="def-select" value="A" id="A">
+                        <a title="Assistances (Assists)">A</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="def-select" value="E" id="E">
+                        <a title="Erreurs (Errors)">E</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="def-select" value="salaireField"
+                            id="salaireField">
+                        <a title="Salaire annuel">Salaire</a>
+                    </label>
+                </div>
+                <div id="grid-co-pitch-select">
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="ERA" id="ERA">
+                        <a title="Moyenne de points mérités (Earned run average)">
+                            ERA</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="BAOpp" id="BAOpp">
+                        <a title="Moyenne au bâton de l'adversaire (Opponent's batting average)">
+                            BAOpp</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="Partant" id="partant">
+                        <a title="Indique par un (P) à côté du nom si le lanceur est partant">
+                            Partant (P)</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="G" id="G">
+                        <a title="Parties jouées (Games)">G</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="GS" id="GS">
+                        <a title="Parties jouées comme lanceur partant (Games started)">
+                            GS</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="CG" id="CG">
+                        <a title="Matchs complets (Complete games)">CG</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="W" id="W">
+                        <a title="Victoires (Wins)">W</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="L" id="L">
+                        <a title="Défaites (Losses)">L</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="SV" id="SV">
+                        <a title="Sauvetages (Saves)">SV</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="IPouts" id="IPouts">
+                        <a title="Retraits lancés: 3x les manches lancées (Outs pitched: innings pitched x 3)">
+                            IPouts</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="SO" id="SO">
+                        <a title="Retrait sur prises (Strikeouts)">SO</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="HPitch" id="HPitch">
+                        <a title="Coups sûr concédés (Hits)">H</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="BBPitch" id="BBPitch">
+                        <a title="But sur balles concédés (Walks)">BB</a>
+                    </label><br>
+                    <label>
+                        <input type="checkbox" name="pitch-select" value="salairePitch" 
+                            id="salairePitch">
+                        <a title="Salaire annuel">Salaire</a>
+                    </label>
+                </div>
+                <div id="grid-co-off-all">
+                    <label>
+                        <input type="checkbox" name="off" value="all" id="all-off">
+                        Sélectionner tout
+                    </label><br>
+                </div>
+                <div id="grid-co-def-all">
+                    <label>
+                        <input type="checkbox" name="def" value="all" id="all-def">
+                        Sélectionner tout
+                    </label><br>
+                </div>
+                <div id="grid-co-pitch-all">
+                    <label>
+                        <input type="checkbox" name="pitch" value="all" id="all-pitch">
+                        Sélectionner tout
+                    </label><br>
+                </div>
+                <div id="grid-co-sortfield-label">
+                    Trier les joueurs au champs par
+                </div>
+                <div id="grid-co-sortfield-select">
+                    <select name="sortfield" id="sortfield">
+                        <option value="BApercent">BA%</option>
+                        <option value="SLpercent">SL%</option>
+                        <option value="OBpercent">OB%</option>
+                        <option value="FPpercent">FP%</option>
+                        <option value="HR">HR</option>
+                        <option value="salaireField">Salaire</option>
+                    </select>
+                </div>
+                <div id="grid-co-sortpitch-label">
+                    Trier les lanceurs par
+                </div>
+                <div id="grid-co-sortpitch-select">
+                    <select name="sortpitch" id="sortpitch">
+                        <option value="ERA">ERA</option>
+                        <option value="BAOpp">BAOpp</option>
+                        <option value="G">G</option>
+                        <option value="GS">GS</option>
+                        <option value="CG">CG</option>
+                        <option value="W">W</option>
+                        <option value="SO">SO</option>
+                        <option value="HPitch">H</option>
+                        <option value="BBPitch">BB</option>
+                        <option value="salairePitch">Salaire</option>
+                    </select>
+                </div>
+                <div id="grid-co-last">
+                    <input type="submit" value="Afficher" id="submit">
+                </div>
+            </div>
+        </fieldset>
+        <h2 id="year-label">&nbsp;</h2>
+        <h3 id="field-label">&nbsp;</h3>
+        <div class="long">
+            <table id="fieldplayers"></table>
+        </div><br>
+        <h3 id="pitch-label">&nbsp;</h3>
+        <div class="long">
+            <table id="pitchers"></table>
+        </div><br>
+        <h3 id="autres-label">&nbsp;</h3>
+        <div id="center">
+            <span id="gerant"></span><br>
+            <span id="assistance"></span><br>
+            <span id="masseSalariale"></span>
+        </div>
+    </main>
+    <footer>
+        &copy; Copyright 2020
+    </footer>
+    <script>
+
+        // Options d'affichage de l'utilisateur
+        // colOff, colDef et colPitch: tableaux associatifs de type
+        // {colonne:booléen}
+        var annee; 
+        var colOff = {};
+        var colDef= {};
+        var colPitch = {};
+        var sortField;
+        var sortPitch;
+
+        $(document).ready(function() {
+
+                // Réinitialiser les checkbox à l'ouverture de la plage
+                $("input:checkbox[id=all-off]").prop("checked", false);
+                $("input:checkbox[name=off-select]").prop("checked", false);
+                $("input:checkbox[name=off-select]").prop("disabled", false);
+                $("input:checkbox[id=all-def]").prop("checked", false);
+                $("input:checkbox[name=def-select]").prop("checked", false);
+                $("input:checkbox[name=def-select]").prop("disabled", false);
+                $("input:checkbox[id=all-pitch]").prop("checked", false);
+                $("input:checkbox[name=pitch-select]").prop("checked", false);
+                $("input:checkbox[name=pitch-select]").prop("disabled", false);
+
+                // Modifier les checkbox en bloc lorsque l'utilisateur coche
+                // Sélectionner tout
+                $("#all-off").click(function(event) {
+                    let status = $("input:checkbox[id=all-off]").prop("checked");
+                    $("input:checkbox[name=off-select]").prop("checked", status);
+                    $("input:checkbox[name=off-select]").prop("disabled", status);
+                });
+
+                $("#all-def").click(function(event) {
+                    let status = $("input:checkbox[id=all-def]").prop("checked");
+                    $("input:checkbox[name=def-select]").prop("checked", status);
+                    $("input:checkbox[name=def-select]").prop("disabled", status);
+                });
+
+                $("#all-pitch").click(function(event) {
+                    let status = $("input:checkbox[id=all-pitch]").prop("checked");
+                    $("input:checkbox[name=pitch-select]").prop("checked", status);
+                    $("input:checkbox[name=pitch-select]").prop("disabled", status);
+                });
+
+                $("#submit").click(function(event){
+
+                    try {
+                        getChoices();
+                        $("#year-label").html(annee);
+                        $("#field-label").html("Joueurs au champs");
+                        $("#pitch-label").html("Lanceurs");
+                        $("#autres-label").html("Autres données");
+                        posteTableau(genererReqField(annee, colOff, colDef, sortField),
+                            "fieldplayers");
+                        posteTableau(genererReqPitch(annee, colPitch, sortPitch), "pitchers");
+                        posteAutres(genererReqAutres(annee));
+                    }
+
+                    catch (err) {
+                        alert(err);
+                    }
+
+                });
+            });
+
+        // Fonction qui récupère les choix de l'utilisateur pour l'affichage
+        // et les assigne au variables gobales.
+        // Pas d'arguments, pas de valeur de retour
+        // Lance une exception si la colonne choisie pour le tri ne fait pas
+        // partie des colonnes sélectionnées pour l'affichage.
+        function getChoices() {
+            annee = $("#year").val();
+            sortField = $("#sortfield").val();
+
+            if (!$("input:checkbox[id="+sortField+"]").prop("checked")) {
+                throw ("La colonne choisie pour le tri des joueurs au champs " +
+                    "ne fait pas partie des colonnes à afficher");
+            }
+
+            sortPitch = $("#sortpitch").val();
+
+            if (!$("input:checkbox[id="+sortPitch+"]").prop("checked") ) {
+                throw ("La colonne choisie pour le tri des lanceurs " +
+                    "ne fait pas partie des colonnes à afficher");
+            }
+
+            // Remplir les tableaux associatifs
+            $("input:checkbox[name=off-select]").each(function() {
+                colOff[$(this).val()] = $(this).prop("checked");
+            });
+
+            $("input:checkbox[name=def-select]").each(function() {
+                colDef[$(this).val()] = $(this).prop("checked");
+            });
+
+            $("input:checkbox[name=pitch-select]").each(function() {
+                colPitch[$(this).val()] = $(this).prop("checked");
+            });
+
+            };
+
+        // Fonction qui génère une requête SQL pour les joueurs au champs
+        // Arguments : année, tableaux des colonnes offensives et défensives
+        // et colonne à trier
+        // Retourne un string contant la requête
+        function genererReqField(yearID, colOff, colDef, sortField) {
+
+            // Les options sélectionnées par l'utilisateur sont ajoutées
+            // par des expressions imbriquées dans le template literal
+            // La virgule est avant la colonne car SQL ne permet pas d'avoir
+            // une virgule flottante à la fin
+            return `CONCAT(Master.nameLast, ", ", Master.nameFirst) AS Nom
+                    ${colOff["BApercent"] ?
+                        ",IFNULL((B.H / NULLIF(B.AB,0)),0) AS BApercent" : "" }
+                    ${colOff["SLpercent"] ?
+                        ",IFNULL(((B.H - B.2B - B.3B - B.HR + (2*B.2B) + (3*B.3B)+ (4*B.HR))" +
+                        "/NULLIF(B.AB,0)),0) AS SLpercent" : "" }
+                    ${colOff["OBpercent"] ?
+                        ",IFNULL(((B.H + B.BB + B.HBP)/ NULLIF((B.AB + B.BB + B.HBP + B.SF)," +
+                        "0)),0) AS OBpercent" : "" }
+                    ${colOff["SOpercent"] ?
+                        ",IFNULL((B.SO/NULLIF(B.AB,0)),0) AS SOpercent" : "" }
+                    ${colOff["SBpercent"] ?
+                        ",IFNULL((B.SB/NULLIF((B.CS + B.SB),0)),0) AS SBpercent" : "" }
+                    ${colOff["AB"] ? ",B.AB" : "" }
+                    ${colOff["HField"] ? ",B.H AS HField" : "" }
+                    ${colOff["2B"] ? ",B.2B" : "" }
+                    ${colOff["3B"] ? ",B.3B" : "" }
+                    ${colOff["HR"] ? ",B.HR" : "" }
+                    ${colOff["BBField"] ? ",B.BB AS BBField" : "" }
+                    ${colOff["R"] ? ",B.R" : "" }
+                    ${colOff["SB"] ? ",B.SB" : "" }
+                    ${colOff["CS"] ? ",B.CS" : "" }
+                    ${colDef["FPpercent"] ? ",F.FPper100 AS FPpercent" : "" }
+                    ${colDef["POS"] ? ",F.POSX AS POS" : "" }
+                    ${colDef["A"] ? ",F.A" : "" }
+                    ${colDef["E"] ? ",F.E" : "" }
+                    ${colDef["salaireField"] ? ",S.salary AS salaireField" : "" }
+
+                FROM Master
+
+                INNER JOIN
+                    (SELECT *
+                    FROM Batting
+                    WHERE yearID=${yearID} AND teamID="MON" AND AB>10)
+                    AS B ON Master.playerID = B.playerID
+
+                INNER JOIN
+                    (SELECT F3.playerID,
+                            IFNULL(SUM(A)/NULLIF((SUM(A)+SUM(E)),0),0) AS FPper100,
+                            SUM(A) AS A,
+                            SUM(E) AS E,
+                            POSX
+                    FROM Fielding AS F3,
+                        ((SELECT playerID AS PID,
+                                MAX(GS) AS MaxGS
+                        FROM Fielding as F1
+                        WHERE (teamID="MON") AND (yearID=${yearID}) AND
+                                (POS <> "P") AND (POS <> "OF")
+                        GROUP BY playerID)
+                        AS T1
+                        INNER JOIN (SELECT playerID,
+                                            POS AS POSX,
+                                            GS
+                                    FROM Fielding AS F2
+                                    WHERE (F2.teamID="MON") AND (F2.yearID=${yearID}) AND
+                                        (F2.POS <> "P") AND (F2.POS <> "OF"))
+                                    AS T2 ON (T1.PID=T2.playerID) AND (T1.MaxGS = GS))
+                    WHERE (T1.PID=F3.playerID) AND (F3.yearID=${yearID})
+                    GROUP BY F3.playerID)
+                    AS F ON B.playerID = F.playerID
+
+                LEFT JOIN
+                    (SELECT *
+                    FROM Salaries
+                    WHERE yearID=${yearID} AND teamID="MON")
+                    AS S ON F.playerID = S.playerID
+
+                ORDER BY ${sortField} DESC;`;
+        };
+
+        // Fonction qui génère une requête SQL pour les lanceurs
+        // Arguments : année, tableaux des colonnes des lanceurs
+        // et colonne à trier
+        // Retourne un string contant la requête
+        function genererReqPitch(annee, colPitch, sortPitch) {
+            return `CONCAT(Master.nameLast, ", ", Master.nameFirst) AS Nom
+                    ${colPitch["ERA"] ? ",P.ERA" : "" }
+                    ${colPitch["BAOpp"] ? ",P.BAOpp" : "" }
+                    ${colPitch["G"] ? ",P.G" : "" }
+                    ${colPitch["GS"] ? ",P.GS" : "" }
+                    ${colPitch["CG"] ? ",P.CG" : "" }
+                    ${colPitch["W"] ? ",P.W" : "" }
+                    ${colPitch["L"] ? ",P.L" : "" }
+                    ${colPitch["SV"] ? ",P.SV" : "" }
+                    ${colPitch["IPouts"] ? ",P.IPouts" : "" }
+                    ${colPitch["SO"] ? ",P.SO" : "" }
+                    ${colPitch["HPitch"] ? ",P.H AS HPitch" : "" }
+                    ${colPitch["BBPitch"] ? ",P.BB AS BBPitch" : "" }
+                    ${colPitch["salairePitch"] ? ",S.salary AS salairePitch" : "" }
+                    ${colPitch["Partant"] ?
+                        ",CASE WHEN P.GS = 0 THEN FALSE ELSE TRUE END AS Partant" : ""}
+
+                FROM Master
+
+                INNER JOIN
+                    (SELECT *
+                    FROM Pitching
+                    WHERE yearID=${annee} AND teamID="MON")
+                    AS P ON Master.playerID = P.playerID
+
+                LEFT JOIN
+                    (SELECT *
+                    FROM Salaries
+                    WHERE yearID=${annee} AND teamID="MON")
+                    AS S ON P.playerID = S.playerID
+
+                ORDER BY ${sortPitch} DESC;`;
+        };
+
+        // Fonction qui génère une requête SQL pour les données autres
+        // Argument : année
+        // Retourne un string contant la requête
+        function genererReqAutres(annee) {
+            return `CONCAT(Master.nameLast, ", ", Master.nameFirst) AS "Gerant",
+                    A.attendance AS Assistance,
+                    S.sumSalaries AS "MasseSalariale"
+                
+                FROM Master
+
+                INNER JOIN
+                    (SELECT playerID
+                    FROM Managers
+                    WHERE yearID=${annee} AND teamID="MON")
+                    AS M on Master.playerID = M.playerID
+
+                INNER JOIN
+                    (SELECT attendance
+                    FROM Teams
+                    WHERE yearID=${annee} AND teamID = "MON")
+                    AS A
+
+                INNER JOIN
+                    (SELECT SUM(salary) AS sumSalaries
+                    FROM Salaries
+                    WHERE yearID=${annee} AND teamID = "MON")
+                    AS S;`;
+        };
+
+        // Fonction qui envoie une requête SQL au script PHP sur le serveur et
+        // retourne la réponse dans la fonction genereTableau
+        // Arguments : requête SQL (string), ID du tableau à remplir
+        // Pas de valeur de retour
+        // Code adapté des exemples de Louis Salvail
+        function posteTableau(requete, tableau){
+            var postData = {};
+            postData["db"] = "dift6800_baseball";
+            postData["query"] = requete;
+            $.post("http://www-ens.iro.umontreal.ca/~dift6800/baseball/db.php",
+                postData,
+                function(reponse,status){
+                    var obj = JSON.parse(reponse);
+
+                    if (obj.error == "") {
+                        genereTableau(obj.data, tableau);
+                    }
+
+                    else {
+                        alert("Erreur:"+obj.error);
+                    }
+                }
+            );
+        };
+
+        // Fonction qui envoie une requête SQL au script PHP sur le serveur et
+        // retourne la réponse dans les champs autres
+        // Arguments : requête SQL (string)
+        // Pas de valeur de retour
+        // Code adapté des exemples de Louis Salvail
+        function posteAutres(requete){
+            var postData = {};
+            postData["db"] = "dift6800_baseball";
+            postData["query"] = requete;
+            $.post("http://www-ens.iro.umontreal.ca/~dift6800/baseball/db.php",
+                postData,
+                function(reponse,status){
+                    var obj = JSON.parse(reponse);
+
+                    if (obj.error == "") {
+                        $("#gerant").html("Gérant: " + obj.data[0]["Gerant"]);
+                        $("#assistance").html("Assistance: " + 
+                            obj.data[0]["Assistance"] + " spectateurs");
+
+                        if (obj.data[0]["MasseSalariale"] == null) {
+                            $("#masseSalariale").html("Masse salariale: N.D.");
+                        }
+
+                        else {
+                            $("#masseSalariale").html("Masse salariale: " +
+                                obj.data[0]["MasseSalariale"] + "$");
+                        }
+
+                        }
+
+                    else {
+                        alert("Erreur:"+obj.error);
+                    }
+                }
+            );
+        };
+
+        // Fonction qui génère un tableau de composition des équipes de baseball
+        // Arguments : données retournées par le script PHP du serveur, ID du
+        // tableau à remplir
+        // Pas de valeur de retour
+        // Code adapté des exemples de Louis Salvail
+        function genereTableau(donnees, id) {
+            var nb = donnees.length;
+
+            if (nb > 0) {
+                var htmltable = "<tr>";
+                
+                for (var attr in donnees[0]) {
+
+                    // Empêcher l'affichage de la colonne Partant
+                    if (attr == "Partant") {
+                        break;
+                    }
+
+                    // Renommer des colonnes problématiques (caractères
+                    // spéciaux ou nom en double)
+                    switch (attr) {
+                        case ("BApercent") : attr = "BA%"; break;
+                        case ("SLpercent") : attr = "SL%"; break;
+                        case ("OBpercent") : attr = "OB%"; break;
+                        case ("SOpercent") : attr = "SO%"; break;
+                        case ("SBpercent") : attr = "SB%"; break;
+                        case ("HField") :
+                        case ("HPitch") :
+                            attr = "H"; break;
+                        case ("BBField") :
+                        case ("BBPitch") :
+                            attr = "BB"; break;
+                        case ("FPpercent") : attr="FP%"; break;
+                        case ("salaireField") :
+                        case ("salairePitch"):
+                            attr="Salaire"; break;
+                    }
+
+                    htmltable = htmltable + "<th>" + attr + "</th>";
+                };
+
+                htmltable = htmltable + "</tr>";
+
+                for (var x = 0; x < nb ; x++) {
+                    htmltable = htmltable + "<tr>";
+
+                    for (var a in donnees[x]) {
+
+                        // Empêcher l'affichage de la colonne Partant
+                        if (a == "Partant") {
+                            break;
+                        }
+
+                        // Renommer les "null" provenant de SQL
+                        if (donnees[x][a] == null) {
+                            donnees[x][a] = "N.D.";
+                        } 
+
+                        // Ajout du (P) à côté du nom si la colonne Partant
+                        // a été sélectionnée et qu'il y a un 1 (true) dans cette
+                        // colonne
+                        else if (a == "Nom" && colPitch["Partant"] && donnees[x]["Partant"] == 1) {
+                            donnees[x][a] = donnees[x][a] + " (P)";
+                        }
+
+                        // Ajout de la classe "off" aux colonnes offensives
+                        // et de la classe "def" aux colonnes défensives
+                        // pour qu'elles s'affichent en 2 couleurs différentes
+                         switch (a) {
+                            case ("BApercent") :
+                            case ("SLpercent") :
+                            case ("OBpercent") :
+                            case ("SOpercent") :
+                            case ("SBpercent") :
+                            case ("AB") :
+                            case ("HField") :
+                            case ("2B") :
+                            case ("3B") :
+                            case ("HR") :
+                            case ("BBField") :
+                            case ("R") : 
+                            case ("SB") :
+                            case ("CS") : 
+                                htmltable = htmltable + "<td class='off'>" +
+                                    donnees[x][a] + "</td>"; break;
+                            case ("FPpercent") :
+                            case ("POS") :
+                            case ("A") :
+                            case ("E") :
+                            case ("salaireField") : 
+                                htmltable = htmltable + "<td class='def'>" +
+                                    donnees[x][a] + "</td>"; break;
+                            default: 
+                                htmltable = htmltable + "<td>" + 
+                                    donnees[x][a] + "</td>"; break;
+                        }
+
+                    }
+
+                    htmltable = htmltable + "</tr>";
+                }
+
+                $("#"+id).html(htmltable);
+
+            }
+
+            else {
+                alert("Le résultat retourné est vide.");
+                $("#"+id).html("");
+            }
+
+        };
+    </script>
+</body>
+</html>
